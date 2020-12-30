@@ -1,0 +1,172 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        padding: 0;
+        appearance: none;
+}
+/*********** header *************/
+header{
+	height: 80px;
+	z-index: 1;
+}
+p.header{
+	height: 50px;
+	width: 100%;
+	background-color: #fc2c55;
+	color: white;
+	text-align: center;
+	line-height: 50px;
+	font-size: 20px;
+	font-weight: bold;
+}
+header div{
+	height: 30px;
+	width: 100%;
+	background-color:#fdfdd2;
+}
+ul.header{
+	width: 300px;
+	height: 30px;
+	margin: 0 auto;
+	background-color:#fdfdd2;
+	list-style: none;
+}
+li.header{
+	width: 150px;
+	line-height: 30px;
+	float: left;
+	text-align: center;
+}
+li.header:hover{
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/*********** toppage *************/
+div.calendar{
+	heidht: auto;
+	padding: 0 20%;
+	z-index: 1;
+}
+select{
+	color: #fc2c55;
+	display: block;
+	margin: 10px auto;
+}
+form.select{
+	padding: 0 20%;
+}
+table.calendar{
+	border-collapse: collapse;
+	margin: 0 auto;
+}
+table.calendar th,table.calendar td{
+	border: solid 1px #c0c0c0;
+	width: 70px;
+}
+table.calendar th{
+	height: 50px;
+	text-align: center;
+	background-color: #e1e1e1;
+}
+table.calendar td{
+	height: 100px;
+	vertical-align: top;
+}
+table.calendar td.show:hover{
+	box-shadow: 0 0 10px rgb(0,0,0,0.4);
+}
+
+/*********** add member *************/
+div.grayout.active{
+	width: 100%;
+	min-height: 100%;
+	background: rgb(0,0,0,0.4);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 5;
+}
+div.popup{
+	display: none;
+}
+div.popup.active{
+	display: block;
+	background-color: white;
+	width: 60%;
+	height: 300px;
+	position: fixed;
+	top: 10%;
+	left: 20%;
+	z-index: 10;
+}
+span.close{
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	cursor: pointer;
+	color: gray;
+}
+p.title{
+	margin: 0 auto;
+	margin-top: 20px;
+	height: 30px;
+	width: 60%;
+	min-width: 320px;
+	line-height:30px;
+	position: relative;
+	border-radius: 10px 10px 0 0;
+	text-align: center;
+	background-color: #37bf3e;
+	color: white;
+	font-weight: bold;
+}
+
+div.waku{
+	margin: 0 auto;
+	width: 60%;
+	min-width: 320px;
+	height: 200px;
+	background-color: white;
+	border: solid 3px #37bf3e;
+	border-radius: 0 0 10px 10px;
+	box-sizing: border-box;
+	text-align: center;
+}
+form.form2{
+	width: 70%;
+	margin: 20px auto;
+}
+button.add_member{
+  display: inline-block;
+  padding: 0.5em 1em;
+  background: #00c864;
+  color: #FFF;
+  border-bottom: solid 4px #008040;
+  border-radius: 3px;
+}
+button.add_member:active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}
+table.add_member {
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+table.add_member th{
+	text-align: right;
+}
+table.add_member tr{
+	height: 40px;
+}
+}
+}
