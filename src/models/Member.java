@@ -2,6 +2,7 @@ package models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,9 +20,12 @@ public class Member implements Serializable {
 
 
 	@Id
+	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@Column(name = "name", length = 32, nullable = false)
 	private String name;
+	@Column(name = "color", length = 32, nullable = false)
 	private String color;
 	private static final long serialVersionUID = 1L;
 

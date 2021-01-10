@@ -1,6 +1,7 @@
 package controllers;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.servlet.RequestDispatcher;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import models.Member;
 import utils.DBUtil;
+import validators.MemberValidator;
 
 /**
  * Servlet implementation class MemberServlet
@@ -49,10 +51,17 @@ public class MemberServlet extends HttpServlet {
 		m.setName(name);
 		m.setColor(color);
 
-		em.getTransaction().begin();
-        em.persist(m);
-        em.getTransaction().commit();
-        em.close();
+		List<String> error = MemberValidator.validate(m);
+        if(error.size() > 0) {
+            em.close();
+            request.setAttribute("errors", error);
+        }else {
+			em.getTransaction().begin();
+	        em.persist(m);
+	        em.getTransaction().commit();
+	        em.close();
+	        request.setAttribute("flush", "メンバー登録が完了しました。");
+        }
 
         RequestDispatcher disp = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
 		disp.forward(request, response);

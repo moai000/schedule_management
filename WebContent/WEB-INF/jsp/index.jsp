@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
@@ -9,6 +10,18 @@
 <title>カレンダー</title>
 </head>
 <body>
+<c:if test="${flush != null}">
+	<div id="flush_success">
+		<c:out value="${flush}"></c:out>
+	</div>
+</c:if>
+<c:if test="${errors != null}">
+	<div id="flush_error">入力内容にエラーがあります。<br />
+		<c:forEach var="error" items="${errors}">
+        	<c:out value="${error}" /><br />
+        </c:forEach>
+	</div>
+</c:if>
 <jsp:include page="header.jsp" />
 <%
 	Calendar c = Calendar.getInstance();
@@ -161,6 +174,16 @@
 		$(".grayout.active").removeClass("active");
 		$(".popup.active").removeClass("active");
 	});
+
+	window.onload = function(){
+		var popup = document.getElementById("flush_success") != null ? document.getElementById("flush_success") : document.getElementById("flush_error");
+		popup.animate({opacity:[0,1]}, 1000);
+		setTimeout(function(){
+				popup.animate({opacity:[1,0]}, 1000)}
+				,3000
+		);
+		setTimeout(function(){popup.style.display = 'none'}, 4000);
+	}
 
 </script>
 </body>

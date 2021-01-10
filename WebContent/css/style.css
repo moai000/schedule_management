@@ -49,6 +49,35 @@ li.header:hover{
 	cursor: pointer;
 }
 
+/*********** popup_message *************/
+#flush_success{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	margin-top: 10px;
+	border-radius: 5px;
+	color: #f0c515;
+	font-weight: bold;
+	background-color: #f8fca3;
+	border: solid #f0c515;
+	position: absolute;
+	top: 0;
+}
+#flush_error{
+	width: 100%;
+	height: 60px;
+	line-height: 20px;
+	text-align: center;
+	margin-top: 10px;
+	border-radius: 5px;
+	color: #ff0000;
+	font-weight: bold;
+	border: solid #ff0000;
+	background-color: #fbb3a4;
+	position: absolute;
+	top: 0;
+}
 /*********** toppage *************/
 div.calendar{
 	heidht: auto;
