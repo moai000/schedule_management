@@ -1,8 +1,10 @@
+
 function load(){
 	document.select.submit();
 }
 
-function submit(){
+function submit(no){
+	document.schedule.day.value = document.getElementById("select_day"+no).textContent;
 	document.schedule.submit();
 }
 
@@ -20,6 +22,7 @@ const show_mem = function(){
 $(".close").click(function(){
 	$(".grayout.active").removeClass("active");
 	$(".popup.active").removeClass("active");
+	$(".grayout").css("height", 0);
 });
 
 window.onload = function(){
@@ -27,14 +30,12 @@ window.onload = function(){
 	if(showFlg == '1'){
 		show_mem();
 	}
-	let popup = document.getElementById("flush_success") || document.getElementById("flush_error");
-	if(popup =! null){
-		popup.animate({opacity:[0,1]}, 1000);
-		setTimeout(function(){
-				popup.animate({opacity:[1,0]}, 1000)}
-				,3000
-		);
-		setTimeout(function(){popup.style.display = 'none'}, 4000);
-	}
+	$("#flush_success").hide().fadeIn(1000);
+	setTimeout(function(){
+		$("#flush_success").fadeOut(1000);
+	}, 3000);
+	$("#flush_error").hide().fadeIn(1000);
+	setTimeout(function(){
+		$("#flush_error").fadeOut(1000);
+	}, 3000);
 }
-

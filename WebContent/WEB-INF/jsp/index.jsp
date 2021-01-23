@@ -117,8 +117,7 @@
 			show_class = "show";
 		}
 %>
-			<td id="select_day" class="<%=show_class %>" onClick="submit()"><%=day %></td>
-			<input type="hidden" name="day" value=<%=day %>>
+			<td id="select_day<%=i %>" class="<%=show_class %>" onClick="submit(<%=i %>)"><%=day %></td>
 <%
 		if(i==list.size()-1 || (i+1)%7==0){
 %>
@@ -131,37 +130,8 @@
 </table>
 	<input type="hidden" name="year" value="<%=selected_year %>">
 	<input type="hidden" name="month" value="<%=selected_month %>">
+	<input type="hidden" name="day" value="">
 </form>
 </div>
-
-<%-- メンバー追加画面 --%>
-<div class="popup">
-	<span class="close">✖</span>
-	<p class="title">メンバー追加</p>
-	<c:if test="${errors != null}">
-		<div id="flush_error">入力内容にエラーがあります。<br />
-			<c:forEach var="error" items="${errors}">
-	        	<c:out value="${error}" /><br />
-	        </c:forEach>
-		</div>
-	</c:if>
-	<div class="waku">
-		<form class="form2" name="add_member" action="member" method="post">
-			<table class="add_member">
-			<tr>
-				<th><label>名前：</label></th><td><input type="text" name="namae"></td>
-			</tr>
-			<tr>
-				<th><label>色：</label></th><td><input type="color" name="color"></td>
-			</tr>
-			</table>
-			<button type="submit" class="add_member">登録</button>
-			<input type="hidden" name="showFlg" value="${showFlg}">
-		</form>
-	</div>
-</div>
-<div class="grayout"></div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="js/calendar.js"></script>
 </body>
 </html>
