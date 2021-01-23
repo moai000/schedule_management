@@ -76,11 +76,12 @@ li.header:hover{
 	border: solid #ff0000;
 	background-color: #fbb3a4;
 	position: absolute;
-	top: 0;
+	top: 100px;
+	z-index: 3;
 }
 /*********** toppage *************/
 div.calendar{
-	heidht: auto;
+	height: auto;
 	padding: 0 20%;
 	z-index: 1;
 }
@@ -121,7 +122,7 @@ div.grayout.active{
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 5;
+	z-index: 2;
 }
 div.popup{
 	display: none;
@@ -134,7 +135,7 @@ div.popup.active{
 	position: fixed;
 	top: 10%;
 	left: 20%;
-	z-index: 10;
+	z-index: 3;
 }
 span.close{
 	position: absolute;
@@ -197,5 +198,14 @@ table.add_member th{
 table.add_member tr{
 	height: 40px;
 }
+
+/*********** schedule *************/
+div.waku_schedule{
+	padding: 20px 5%;
 }
+
+div.waku_schedule p{
+	color: #fc2c55;
+	font-size: larger;
 }
+

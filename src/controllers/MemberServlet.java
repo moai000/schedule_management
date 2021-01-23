@@ -53,8 +53,9 @@ public class MemberServlet extends HttpServlet {
 
 		List<String> error = MemberValidator.validate(m);
         if(error.size() > 0) {
-            em.close();
+        	em.close();
             request.setAttribute("errors", error);
+            request.setAttribute("showFlg", "1");
         }else {
 			em.getTransaction().begin();
 	        em.persist(m);

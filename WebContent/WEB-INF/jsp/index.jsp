@@ -15,13 +15,6 @@
 		<c:out value="${flush}"></c:out>
 	</div>
 </c:if>
-<c:if test="${errors != null}">
-	<div id="flush_error">入力内容にエラーがあります。<br />
-		<c:forEach var="error" items="${errors}">
-        	<c:out value="${error}" /><br />
-        </c:forEach>
-	</div>
-</c:if>
 <jsp:include page="header.jsp" />
 <%
 	Calendar c = Calendar.getInstance();
@@ -97,6 +90,7 @@
 		}
 	}
 %>
+<form name="schedule" method="post" action="schedule">
 <table class="calendar">
 	<thead>
 		<tr>
@@ -123,7 +117,8 @@
 			show_class = "show";
 		}
 %>
-			<td class="<%= show_class %>"><%= day %></td>
+			<td id="select_day" class="<%=show_class %>" onClick="submit()"><%=day %></td>
+			<input type="hidden" name="day" value=<%=day %>>
 <%
 		if(i==list.size()-1 || (i+1)%7==0){
 %>
@@ -134,12 +129,22 @@
 %>
 	</tbody>
 </table>
+	<input type="hidden" name="year" value="<%=selected_year %>">
+	<input type="hidden" name="month" value="<%=selected_month %>">
+</form>
 </div>
 
 <%-- メンバー追加画面 --%>
 <div class="popup">
 	<span class="close">✖</span>
 	<p class="title">メンバー追加</p>
+	<c:if test="${errors != null}">
+		<div id="flush_error">入力内容にエラーがあります。<br />
+			<c:forEach var="error" items="${errors}">
+	        	<c:out value="${error}" /><br />
+	        </c:forEach>
+		</div>
+	</c:if>
 	<div class="waku">
 		<form class="form2" name="add_member" action="member" method="post">
 			<table class="add_member">
@@ -151,40 +156,12 @@
 			</tr>
 			</table>
 			<button type="submit" class="add_member">登録</button>
-			<input type="hidden" name="AddMember">
+			<input type="hidden" name="showFlg" value="${showFlg}">
 		</form>
 	</div>
 </div>
 <div class="grayout"></div>
-<script src="//code.jquery.com/jquery-3.5.0.min.js"></script>
-<script>
-	function load(){
-		document.select.submit();
-	}
-
-	$("#member").click(function(){
-		const height = $("body").height();
-		$(".grayout").addClass("active");
-		$(".grayout.active").css("height", height);
-
-		$(".popup").addClass("active");
-	});
-
-	$(".close").click(function(){
-		$(".grayout.active").removeClass("active");
-		$(".popup.active").removeClass("active");
-	});
-
-	window.onload = function(){
-		var popup = document.getElementById("flush_success") != null ? document.getElementById("flush_success") : document.getElementById("flush_error");
-		popup.animate({opacity:[0,1]}, 1000);
-		setTimeout(function(){
-				popup.animate({opacity:[1,0]}, 1000)}
-				,3000
-		);
-		setTimeout(function(){popup.style.display = 'none'}, 4000);
-	}
-
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/calendar.js"></script>
 </body>
 </html>
