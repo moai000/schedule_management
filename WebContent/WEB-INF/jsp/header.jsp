@@ -20,7 +20,7 @@
 </header>
 
 <%-- メンバー追加画面 --%>
-<div class="popup">
+<div class="popup_mem">
 	<span class="close">✖</span>
 	<p class="title">メンバー追加</p>
 	<c:if test="${errors != null}">
@@ -46,7 +46,5 @@
 	</div>
 </div>
 <div class="grayout"></div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="js/calendar.js"></script>
 </body>
 </html>

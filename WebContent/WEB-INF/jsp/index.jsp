@@ -133,5 +133,6 @@
 	<input type="hidden" name="day" value="">
 </form>
 </div>
+<jsp:include page="footer.jsp" />
 </body>
 </html>

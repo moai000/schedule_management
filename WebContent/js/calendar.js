@@ -8,20 +8,26 @@ function submit(no){
 	document.schedule.submit();
 }
 
-const show_mem = function(){
+const show_pop = function(mode){
 	const height = $("body").height();
 	$(".grayout").addClass("active");
 	$(".grayout.active").css("height", height);
-	$(".popup").addClass("active");
+
+	$(".popup_"+mode).addClass("active");
 };
 
  $("#member").click(function(){
- 	show_mem();
+ 	show_pop("mem");
+ });
+
+ $("#schedule").click(function(){
+ 	show_pop("sche");
  });
 
 $(".close").click(function(){
 	$(".grayout.active").removeClass("active");
-	$(".popup.active").removeClass("active");
+	$(".popup_mem.active").removeClass("active");
+	$(".popup_sche.active").removeClass("active");
 	$(".grayout").css("height", 0);
 });
 
